@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title id="pageTitle">Architecte & Ingénieur Civil | Portfolio</title>
+  <meta name="description" content="Portfolio - construction de maisons, architecture, ingénierie civile."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#">
+        <span class="brand__logo" aria-hidden="true">🏗️</span>
+        <span class="brand__text">
+          <strong id="brandName">Entreprise BTP</strong>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="#about">À propos</a>
+        <a class="nav__link" href="#projects">Réalisations</a>
+        <a class="nav__link" href="#contact">Contact</a>
+        <a class="nav__cta" href="admin.html" title="Espace admin">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <p class="badge">Architecture • Construction • Ingénierie civile</p>
+          <h1 class="hero__title">
+            <span id="heroName">Miguel Atonliké</span><br/>
+            <span class="accent" id="heroRole">Architecte & Ingénieur Civil</span>
+          </h1>
+          <p class="hero__subtitle" id="heroBio">
+            Nous concevons et construisons des maisons solides, modernes et adaptées à votre budget.
+            Découvrez nos réalisations et contactez-nous pour votre projet.
+          </p>
+
+          <div class="hero__buttons">
+            <a class="btn btn--primary" href="#projects">Voir les réalisations</a>
+            <a class="btn btn--soft" href="#contact">Demander un devis</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat">
+              <div class="stat__num" id="statYears">10+</div>
+              <div class="stat__label">Années d'expérience</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num" id="statProjects">50+</div>
+              <div class="stat__label">Projets réalisés</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num" id="statCities">Plusieurs</div>
+              <div class="stat__label">Villes couvertes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__card">
+          <div class="card">
+            <h2 class="card__title">Services</h2>
+            <ul class="list" id="servicesList">
+              <li>Conception de plans & architecture</li>
+              <li>Construction de maisons</li>
+              <li>Rénovation & extension</li>
+              <li>Suivi de chantier</li>
+            </ul>
+            <div class="card__footer">
+              <a class="btn btn--ghost" href="#contact">Contact rapide</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">À propos</h2>
+          <p class="section__desc" id="aboutIntro">
+            Un professionnel du bâtiment qui transforme vos idées en réalisations.
+          </p>
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card">
+            <h3 class="card__title">Présentation</h3>
+            <p class="card__text" id="aboutText">
+              Nous accompagnons nos clients de la conception jusqu’à la livraison, avec un souci de qualité,
+              sécurité et respect des délais.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Pourquoi nous choisir ?</h3>
+            <div class="pillRow" id="aboutHighlights">
+              <span class="pill">Qualité</span>
+              <span class="pill">Transparence</span>
+              <span class="pill">Délais</span>
+              <span class="pill">Design moderne</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Réalisations</h2>
+          <p class="section__desc">Quelques projets publiés par l’architecte/ingénieur.</p>
+        </div>
+
+        <div class="toolbar">
+          <input class="input" id="searchInput" type="search" placeholder="Rechercher un projet (ex: villa, duplex, rénovation)…">
+          <select class="input" id="typeFilter">
+            <option value="">Tous types</option>
+            <option value="Maison">Maison</option>
+            <option value="Villa">Villa</option>
+            <option value="Immeuble">Immeuble</option>
+            <option value="Rénovation">Rénovation</option>
+            <option value="Plan">Plan</option>
+          </select>
+        </div>
+
+        <div class="grid grid--3" id="projectsGrid">
+          <!-- filled by JS -->
+        </div>
+
+        <div class="empty" id="emptyState" hidden>
+          <p>Aucun projet publié pour l’instant.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Contact</h2>
+          <p class="section__desc">Contactez-nous pour un devis ou une visite de chantier.</p>
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card">
+            <h3 class="card__title">Informations</h3>
+            <div class="contactRow">
+              <div class="label">Email</div>
+              <a class="value" id="contactEmail" href="mailto:atonlikeumiguel@gmail.com">atonlikeumiguel@gmail.com</a>
+            </div>
+            <div class="contactRow">
+              <div class="label">Téléphone</div>
+              <div class="value" id="contactPhone">À renseigner</div>
+            </div>
+            <div class="contactRow">
+              <div class="label">Adresse</div>
+              <div class="value" id="contactAddress">À renseigner</div>
+            </div>
+            <p class="hint">Ces infos sont modifiables depuis l’espace admin.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Demander un devis</h3>
+            <form id="quoteForm" class="form" novalidate>
+              <div class="form__row">
+                <label class="label" for="qName">Nom</label>
+                <input class="input" id="qName" required placeholder="Votre nom">
+                <small class="error" id="qErrName"></small>
+              </div>
+              <div class="form__row">
+                <label class="label" for="qEmail">Email</label>
+                <input class="input" id="qEmail" type="email" required placeholder="vous@email.com">
+                <small class="error" id="qErrEmail"></small>
+              </div>
+              <div class="form__row">
+                <label class="label" for="qMsg">Message</label>
+                <textarea class="input textarea" id="qMsg" rows="5" required placeholder="Décrivez votre projet..."></textarea>
+                <small class="error" id="qErrMsg"></small>
+              </div>
+              <button class="btn btn--primary" type="submit">Envoyer</button>
+              <p class="hint">Le formulaire ouvre votre boîte mail (pas besoin de serveur).</p>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal__backdrop" id="modalBackdrop"></div>
+      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__head">
+          <h3 class="modal__title" id="modalTitle">Projet</h3>
+          <button class="btn btn--ghost" id="modalClose" aria-label="Fermer">✕</button>
+        </div>
+        <div class="modal__body" id="modalBody"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> <span id="footerName">Miguel Atonliké</span>. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Firebase SDK (v10 modular) -->
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

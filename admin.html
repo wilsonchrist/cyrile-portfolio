@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin | Gestion du site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo" aria-hidden="true">🛠️</span>
+        <span class="brand__text"><strong>Admin</strong></span>
+      </a>
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Voir le site</a>
+        <button class="btn btn--ghost" id="logoutBtn" type="button" hidden>Déconnexion</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h1 class="section__title">Espace administration</h1>
+        <p class="section__desc">
+          Seul <strong>atonlikeumiguel@gmail.com</strong> peut modifier le contenu.
+        </p>
+      </div>
+
+      <!-- LOGIN -->
+      <section class="card" id="loginCard">
+        <h2 class="card__title">Connexion</h2>
+        <p class="hint">Connexion par email + mot de passe (Firebase Auth).</p>
+
+        <form class="form" id="loginForm" novalidate>
+          <div class="form__row">
+            <label class="label" for="loginEmail">Email</label>
+            <input class="input" id="loginEmail" type="email" value="atonlikeumiguel@gmail.com" required>
+            <small class="error" id="errLoginEmail"></small>
+          </div>
+          <div class="form__row">
+            <label class="label" for="loginPass">Mot de passe</label>
+            <input class="input" id="loginPass" type="password" required placeholder="••••••••">
+            <small class="error" id="errLoginPass"></small>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Se connecter</button>
+            <button class="btn btn--soft" type="button" id="resetPassBtn">Mot de passe oublié</button>
+          </div>
+
+          <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+        </form>
+      </section>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" hidden>
+        <div class="grid grid--2">
+          <!-- SITE SETTINGS -->
+          <article class="card">
+            <h2 class="card__title">Informations du site</h2>
+
+            <form class="form" id="settingsForm">
+              <div class="form__row">
+                <label class="label" for="sName">Nom / Entreprise</label>
+                <input class="input" id="sName" placeholder="Ex: Miguel Atonliké Construction">
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="sRole">Titre</label>
+                <input class="input" id="sRole" placeholder="Architecte & Ingénieur Civil">
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="sBio">Bio (Hero)</label>
+                <textarea class="input textarea" id="sBio" rows="4"></textarea>
+              </div>
+
+              <div class="grid grid--2">
+                <div class="form__row">
+                  <label class="label" for="sYears">Années d'expérience</label>
+                  <input class="input" id="sYears" placeholder="Ex: 10+">
+                </div>
+                <div class="form__row">
+                  <label class="label" for="sProjects">Projets réalisés</label>
+                  <input class="input" id="sProjects" placeholder="Ex: 50+">
+                </div>
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="sCities">Zone / Villes</label>
+                <input class="input" id="sCities" placeholder="Ex: Douala, Yaoundé, Bafoussam...">
+              </div>
+
+              <div class="grid grid--2">
+                <div class="form__row">
+                  <label class="label" for="sPhone">Téléphone</label>
+                  <input class="input" id="sPhone" placeholder="+237 ...">
+                </div>
+                <div class="form__row">
+                  <label class="label" for="sAddress">Adresse</label>
+                  <input class="input" id="sAddress" placeholder="Quartier / Ville">
+                </div>
+              </div>
+
+              <button class="btn btn--primary" type="submit">Enregistrer</button>
+              <p class="hint">Ces infos apparaissent sur la page publique.</p>
+            </form>
+          </article>
+
+          <!-- ADD PROJECT -->
+          <article class="card">
+            <h2 class="card__title">Ajouter une réalisation</h2>
+
+            <form class="form" id="projectForm">
+              <div class="form__row">
+                <label class="label" for="pTitle">Titre</label>
+                <input class="input" id="pTitle" required placeholder="Ex: Villa moderne R+1">
+                <small class="error" id="errPTitle"></small>
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="pType">Type</label>
+                <select class="input" id="pType">
+                  <option>Maison</option>
+                  <option>Villa</option>
+                  <option>Immeuble</option>
+                  <option>Rénovation</option>
+                  <option>Plan</option>
+                </select>
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="pLocation">Localisation</label>
+                <input class="input" id="pLocation" placeholder="Ex: Yaoundé">
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="pDesc">Description</label>
+                <textarea class="input textarea" id="pDesc" rows="4" placeholder="Court texte sur le projet..."></textarea>
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="pCover">Photo de couverture (image)</label>
+                <input class="input" id="pCover" type="file" accept="image/*" required>
+                <small class="error" id="errPCover"></small>
+                <p class="hint">PNG / JPG recommandé. Compression automatique par navigateur.</p>
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="pGallery">Galerie (plusieurs images)</label>
+                <input class="input" id="pGallery" type="file" accept="image/*" multiple>
+              </div>
+
+              <div class="form__row">
+                <label class="label" for="pVideo">Vidéo courte (optionnel)</label>
+                <input class="input" id="pVideo" type="file" accept="video/*">
+                <p class="hint">Pour une vitrine, préfère des petites vidéos (10–30 secondes).</p>
+              </div>
+
+              <button class="btn btn--primary" type="submit">Publier le projet</button>
+              <div class="progress" id="uploadProgress" hidden>
+                <div class="progress__bar" id="progressBar"></div>
+              </div>
+            </form>
+          </article>
+        </div>
+
+        <!-- MANAGE PROJECTS -->
+        <section class="card mt-16">
+          <div class="row">
+            <h2 class="card__title">Gérer les réalisations</h2>
+            <button class="btn btn--soft" id="refreshBtn" type="button">Rafraîchir</button>
+          </div>
+          <div class="grid grid--3" id="adminProjectsGrid"></div>
+          <div class="empty" id="adminEmpty" hidden><p>Aucun projet.</p></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
